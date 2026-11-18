@@ -1,5 +1,5 @@
 <Project>
-	<!-- 
+  <!-- 
 	The directory.build and config.build files have been copied/modified from PEAKLib.
 	Credits to original authors for this useful/clean project format :)
 	-->
@@ -7,55 +7,54 @@
     This is a special file that contains shared configuration
     for all project files in subdirectories.
   -->
-
+  <PropertyGroup>
+    <!-- Version of the UnityEngine.Modules NuGet package (used below to avoid duplicate local references) -->
+    <UnityModulesVersion>2022.3.21</UnityModulesVersion>
+  </PropertyGroup>
   <!-- Set extra NuGet sources -->
   <PropertyGroup>
-	<RestoreAdditionalProjectSources>
+    <RestoreAdditionalProjectSources>
 		https://api.nuget.org/v3/index.json;
 		https://nuget.samboy.dev/v3/index.json;
 		https://nuget.bepinex.dev/v3/index.json;
 		https://nuget.windows10ce.com/nuget/v3/index.json
 	</RestoreAdditionalProjectSources>
   </PropertyGroup>
-
   <!-- Modding dependencies -->
   <ItemGroup>
-	<PackageReference Include="Hamunii.BepInEx.AutoPlugin" Version="2.0.*" PrivateAssets="all" />
+    <PackageReference Include="Hamunii.BepInEx.AutoPlugin" Version="2.0.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.Core" Version="5.4.21" />
     <PackageReference Include="BepInEx.Analyzers" Version="1.*" PrivateAssets="all" />
     <PackageReference Include="BepInEx.AssemblyPublicizer.MSBuild" Version="0.4.3" PrivateAssets="all" />
-	<PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
-	<PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
-	<PackageReference Include="UnityEngine.Modules" Version="2022.3.21" IncludeAssets="compile" PrivateAssets="all" />
-	<PackageReference Include="BunyaPineTree-ModelReplacementAPI" Version="*" Private="False" />
-	<PackageReference Include="WhiteSpike-Interactive_Terminal_API" Version="*" Private="False" Publicize="true" />
-	<PackageReference Include="BMX-LobbyCompatibility" Version="*" Private="False" />
-	<PackageReference Include="AinaVT-LethalConfig" Version="*" Private="False" />
-	<PackageReference Include="Zaggy1024-OpenBodyCams" Version="*" Private="False" />
-	<PackageReference Include="Zaggy1024-TwoRadarMaps" Version="*" Private="False" />
-	<PackageReference Include="IAmBatby-LethalLevelLoader" Version="*" Private="False" Publicize="true" />
-	<PackageReference Include="Rozebud-FOV_Adjust" Version="*" Private="False" />
-	<PackageReference Include="mborsh-CruiserTerminal" Version="*" Private="False" />
-	<PackageReference Include="ShaosilGaming-GeneralImprovements" Version="*" Private="False" />
-	<PackageReference Include="LethalCompanyModding-ShipInventoryUpdated" Version="*" Private="False" />
-	<PackageReference Include="mrov-WeatherTweaks" Version="*" Private="False" Publicize="true" />
-	<PackageReference Include="TeamXiaolan-DawnLib" Version="0.9.*" Private="False" Publicize="true" />
-
-	  <!--Compatibility with other mods I've created should be with what is public-->
-	<PackageReference Include="darmuh-LethalConstellations" Version="*" Private="False" />
-	<PackageReference Include="darmuh-suitsTerminal" Version="*" Private="False" Publicize="true"/>
-
-	  <!-- Local References -->
-	<Reference Include="OpenLib">
-		<HintPath>$(OpenLibLocal)</HintPath>
-	</Reference>
+    <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+    <PackageReference Include="UnityEngine.Modules" Version="$(UnityModulesVersion)" IncludeAssets="compile" PrivateAssets="all" />
+    <PackageReference Include="BunyaPineTree-ModelReplacementAPI" Version="*" Private="False" />
+    <PackageReference Include="WhiteSpike-Interactive_Terminal_API" Version="*" Private="False" Publicize="true" />
+    <PackageReference Include="BMX-LobbyCompatibility" Version="*" Private="False" />
+    <PackageReference Include="AinaVT-LethalConfig" Version="*" Private="False" />
+    <PackageReference Include="Zaggy1024-OpenBodyCams" Version="*" Private="False" />
+    <PackageReference Include="Zaggy1024-TwoRadarMaps" Version="*" Private="False" />
+    <PackageReference Include="IAmBatby-LethalLevelLoader" Version="*" Private="False" Publicize="true" />
+    <PackageReference Include="Rozebud-FOV_Adjust" Version="*" Private="False" />
+    <PackageReference Include="mborsh-CruiserTerminal" Version="*" Private="False" />
+    <PackageReference Include="ShaosilGaming-GeneralImprovements" Version="*" Private="False" />
+    <PackageReference Include="LethalCompanyModding-ShipInventoryUpdated" Version="*" Private="False" />
+    <PackageReference Include="mrov-WeatherTweaks" Version="*" Private="False" Publicize="true" />
+    <PackageReference Include="TeamXiaolan-DawnLib" Version="0.9.*" Private="False" Publicize="true" />
+    <!--Compatibility with other mods I've created should be with what is public-->
+    <PackageReference Include="darmuh-LethalConstellations" Version="*" Private="False" />
+    <PackageReference Include="darmuh-suitsTerminal" Version="*" Private="False" Publicize="true"/>
+    <!-- Local References -->
+    <Reference Include="OpenLib">
+      <HintPath>$(OpenLibLocal)</HintPath>
+      <Private>False</Private>
+    </Reference>
   </ItemGroup>
-
   <!-- NuGet fallback stripped game references -->
   <ItemGroup Condition="!Exists('$(ManagedDir)')">
     <PackageReference Include="UnityEngine.Modules" Version="6000.0.36" PrivateAssets="all" />
   </ItemGroup>
-
   <!-- Local game references -->
   <ItemGroup Condition="Exists('$(ManagedDir)')">
     <!--
@@ -63,14 +62,20 @@
       with our target framework or would cause conflicts
     -->
     <LocalReferences
-      Include="$(ManagedDir)*.dll;$(ManagedDir)UnityEngine.UI*.dll"
+      Include="$(ManagedDir)*.dll"
       Exclude="$(ManagedDir)Mono*.dll;$(ManagedDir)netstandard.dll;$(ManagedDir)System*.dll;$(ManagedDir)mscorlib.dll;$(ManagedDir)Newtonsoft*.dll"
     />
+    <!--
+      The UnityEngine.Modules NuGet package already supplies many of the same UnityEngine assemblies.
+      Referencing both makes Visual Studio show the game's copies as unresolved (yellow triangles),
+      so drop the game's copy of anything the package provides. Only active once the package has been restored.
+    -->
+    <NuGetUnityDll Include="$(NuGetPackageRoot)unityengine.modules/$(UnityModulesVersion)/**/*.dll" />
+    <LocalReferences Remove="@(NuGetUnityDll->'$(ManagedDir)%(Filename)%(Extension)')" />
     <Reference Include="@(LocalReferences)" Private="false" />
-    <!-- Publicize these assemblies so we can access their internal members -->
+    <Reference Remove="$(ManagedDir)Assembly-CSharp.dll" />
     <Reference Include="$(ManagedDir)Assembly-CSharp.dll" Private="false" Publicize="true" />
   </ItemGroup>
-
   <!--
     Build Thunderstore package by calling `dotnet build -c Release -target:PackTS -v d` (verbosity detailed).
     Publish to Thunderstore by including `-property:PublishTS=true` in the command.
@@ -87,5 +92,4 @@
     <Exec Command="dotnet tool restore" />
     <Exec Command="dotnet tcli $(BuildArgument) --package-version $(Version)" />
   </Target>
-
 </Project>
