@@ -24,8 +24,8 @@ The full list is in the changelog.
 
 ### Links
 
-![Dynamic Regex Thunderstore Badge](<https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fthunderstore.io%2Fc%2Flethal-company%2Fp%2FFoldingSolid%2FdarmuhsTerminalStuffFork%2F&search=Total%20downloads%5B%5E%5Cd%5D*(%5Cd%5B%5Cd%2C%5D*)&replace=%241&style=for-the-badge&logo=thunderstore&label=thunderstore&color=%2300BC8C&link=https%3A%2F%2Fthunderstore.io%2Fc%2Flethal-company%2Fp%2FFoldingSolid%2FdarmuhsTerminalStuffFork%2F>)
-![Github Badge](<https://img.shields.io/badge/source%20code-github?style=for-the-badge&logo=github&label=github&color=%234183C4&link=https%3A%2F%2Fgithub.com%2FFoldingSolid%2FTerminalStuffFork>)
+[![Dynamic Regex Thunderstore Badge](<https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fthunderstore.io%2Fc%2Flethal-company%2Fp%2FFoldingSolid%2FdarmuhsTerminalStuffFork%2F&search=Total%20downloads%5B%5E%5Cd%5D*(%5Cd%5B%5Cd%2C%5D*)&replace=%241&style=for-the-badge&logo=thunderstore&label=thunderstore&color=%2300BC8C>)](https://thunderstore.io/c/lethal-company/p/FoldingSolid/darmuhsTerminalStuffFork/)
+[![Github Badge](<https://img.shields.io/badge/source%20code-github?style=for-the-badge&logo=github&label=github&color=%234183C4>)](https://github.com/FoldingSolid/TerminalStuffFork)
 
 ### License and credits
 
