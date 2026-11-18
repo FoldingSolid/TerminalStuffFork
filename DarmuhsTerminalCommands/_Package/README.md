@@ -1,3 +1,42 @@
+# darmuhsTerminalStuffFork (Community Fork)
+
+## **This is an unofficial community fork of [darmuhsTerminalStuff](https://thunderstore.io/c/lethal-company/p/darmuh/darmuhsTerminalStuff/) by darmuh. It is not affiliated with or supported by the original author.**
+
+Based on darmuhsTerminalStuff **3.10.4**. All features, commands and config items are the original mod's. This fork exists to fix one problem: the `ModNetworking` config item (which should let unmodded players join your lobby when disabled) stopped working in recent versions of the original.
+
+### What is different in this fork (3.10.401)
+
+- Fixed `ModNetworking` not allowing unmodded (vanilla) players to join when disabled.
+  - The networking object is no longer registered at all when `ModNetworking` is turned off.
+  - Restart the game after changing `ModNetworking`. It is only read at startup.
+  - Other mods that use OpenLib's networking can still register their own network objects, which may still stop unmodded players from joining.
+- Fixed errors when `ModNetworking` is disabled (Refund, credit-charging commands such as Route Random, and radar zoom).
+- `NetworkedNodes` now only applies when `ModNetworking` is also enabled (fixes the Always-On Display toggle doing nothing in that setup).
+
+The full list is in the changelog.
+
+### Important
+
+- **Do not install this together with the original darmuhsTerminalStuff.** Both use the same plugin ID (`darmuh.TerminalStuff`), so only one of them can load. Remove the original first.
+- Because the plugin ID and config file name are unchanged, your existing `darmuh.TerminalStuff.cfg` settings carry over.
+- Requires the same dependencies as the original (OpenLib 0.4.3, see the dependency list on this page).
+- Mods that list the original (`darmuh-darmuhsTerminalStuff`) as a dependency will install it alongside this fork. If that happens, remove the original.
+
+### Links
+
+![Dynamic Regex Thunderstore Badge](<https://img.shields.io/badge/dynamic/regex?url=https%3A%2F%2Fthunderstore.io%2Fc%2Flethal-company%2Fp%2FFoldingSolid%2FdarmuhsTerminalStuffFork%2F&search=Total%20downloads%5B%5E%5Cd%5D*(%5Cd%5B%5Cd%2C%5D*)&replace=%241&style=for-the-badge&logo=thunderstore&label=thunderstore&color=%2300BC8C&link=https%3A%2F%2Fthunderstore.io%2Fc%2Flethal-company%2Fp%2FFoldingSolid%2FdarmuhsTerminalStuffFork%2F>)
+![Github Badge](<https://img.shields.io/badge/source%20code-github?style=for-the-badge&logo=github&label=github&color=%234183C4&link=https%3A%2F%2Fgithub.com%2FFoldingSolid%2FTerminalStuffFork>)
+
+### License and credits
+
+All credit for the mod goes to **darmuh**. Released under the MIT License, the same as the original (copyright notice kept in LICENSE.md).
+
+---
+
+**Everything below this line is the original README by darmuh, unchanged.**
+
+---
+
 # darmuhsTerminalStuff (All-In-One Terminal Expansion Mod)  
 
 ## **For vanilla compatibility, disable ModNetworking in config (found in the "Networking" section)**  

@@ -1,8 +1,8 @@
 {
-  "name": "darmuhsTerminalStuff",
-  "version_number": "3.10.4",
-  "website_url": "https://github.com/darmuh/TerminalStuff",
-  "description": "(V80 Compatible) All-In-One Terminal expansion mod with lots of customization!",
+  "name": "darmuhsTerminalStuffFork",
+  "version_number": "3.10.401",
+  "website_url": "https://github.com/FoldingSolid/TerminalStuffFork",
+  "description": "Fork of darmuhsTerminalStuff with additional modifications. V80 Compatible.",
   "dependencies": [
     "darmuh-OpenLib-0.4.3"
   ]

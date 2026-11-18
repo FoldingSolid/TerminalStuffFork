@@ -369,8 +369,8 @@ FodyWeavers.xsd
 /DarmuhsTerminalCommands/_Package/BepInEx.AssemblyPublicizer.MSBuild.dll
 /DarmuhsTerminalCommands/Config.Build.user.props
 /DarmuhsTerminalCommands/Config.Build.user.props
-/DarmuhsTerminalCommands/_Package/darmuhsTerminalStuff.dll.config
-/DarmuhsTerminalCommands/_Package/darmuhsTerminalStuff_original.dll
+/DarmuhsTerminalCommands/_Package/darmuhsTerminalStuffFork.dll.config
+/DarmuhsTerminalCommands/_Package/darmuhsTerminalStuffFork_original.dll
 /DarmuhsTerminalCommands/app.config
 /DarmuhsTerminalCommands/_Package/_Package.zip
-/DarmuhsTerminalCommands/_Package/darmuhsTerminalStuff.dll
+/DarmuhsTerminalCommands/_Package/darmuhsTerminalStuffFork.dll

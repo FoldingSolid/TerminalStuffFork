@@ -5,6 +5,22 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 This project does NOT adhere to perfect Semantic Versioning. Mostly because I don't have the time to learn how to use it.
 
+## [3.10.401] (darmuhsTerminalStuffFork - based on darmuh's 3.10.4)
+
+- This is the first release of the community fork. Everything from 3.10.4 is unchanged unless listed below.
+- Fixed the `ModNetworking` config item not allowing unmodded (vanilla) players to join when disabled.
+  - The mod's networking object was being registered with the game's network manager even when `ModNetworking` was disabled. It is now not registered at all when the setting is off.
+  - `ModNetworking` is read once at startup, restart the game after changing it.
+  - Other mods that use OpenLib's networking can still register their own network objects, which may still stop unmodded players from joining.
+- Fixed errors (NullReferenceException) when `ModNetworking` is disabled.
+  - Affected the Refund command, commands that charge credits (such as Route Random), and radar zoom.
+  - Credits are now synced with the game's own credit sync when the mod's networking is off.
+- `NetworkedNodes` now only applies when `ModNetworking` is also enabled.
+  - Previously the Always-On Display toggle command could do nothing at all when `ModNetworking` was disabled and `NetworkedNodes` was left at its default.
+- Package renamed to darmuhsTerminalStuffFork. The plugin ID (`darmuh.TerminalStuff`) and config file name are unchanged, so existing settings carry over.
+  - Do not install this alongside the original darmuhsTerminalStuff, they share the same plugin ID and only one can load.
+- Project/build changes (no effect in-game): the project now loads correctly in current versions of Visual Studio, and the build no longer copies OpenLib.dll or a .deps.json file into its output.
+
 ## [3.10.4]
  - Fixed StorePlus throwing errors from mods that add terminal nodes with invalid shipUnlockableID values 
 	- Invalid values are not -1 and greater than any corresponding unlockable item
